@@ -1,5 +1,4 @@
-from oberver import Observer
-from subject import WeatherData
+from observer import Observer
 
 
 class DisplayElement:
@@ -8,9 +7,15 @@ class DisplayElement:
 
 
 class CurrentConditionsDisplay(Observer, DisplayElement):
-    def __init__(self, weather_data):
+    def __init__(self):
         self.temperature = None
         self.humidity = None
-        self.weather_data = weather_data
 
-    
+    def update(self, temperature, humidity, pressure):
+        self.temperature = temperature
+        self.humidity = humidity
+        self.display()
+
+    def display(self):
+        print(f"Current conditions: {self.temperature} C degrees and {self.humidity} humidity")
+

@@ -33,6 +33,7 @@ class WeatherData(Subject):
         self.temperature = temperature
         self.humidity = humidity
         self.pressure = pressure
+        self.measurements_changed()
 
 
 
